@@ -1,0 +1,15 @@
+sonarqube:						# "sonarqube" --> sonarqube container label
+  image: sonarqube					# SONARQUBE DOCKER OFFICIAL
+  ports:
+   - "9000:9000"					# SONARQUBE PORT EXPOSED TO HOST
+   - "5432:5432"					# POSTGRES DEFAULT PORT EXPOSE TO HOST
+  links:
+    - db:db						# MAPPING "db" TO "db" 
+  environment:	
+   - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar # TWO HOST DOCKER CONTAINER LINKING - SONARQUBE : POSTGRES
+
+db:							#  "db" --> postgres container label
+  image: postgres					# POSTGRES DOCKER OFFICIAL
+  environment:
+   - POSTGRES_USER=sonar				#setting postgres db "USER"
+   - POSTGRES_PASSWORD=sonar				#setting postgres db "PASSWORD"
