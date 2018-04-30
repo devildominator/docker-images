@@ -1,2 +1,8 @@
-# docker-images
-This repository contains docker images configuration for various exciting needs.
+# SonarQube with PostgreSQL
+
+Docker compose file to run SonarQube with PostgreSQL as DB.
+
+## Run 
+```
+$docker-compose up -d
+```
